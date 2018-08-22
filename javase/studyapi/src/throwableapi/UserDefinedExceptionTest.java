@@ -1,7 +1,5 @@
 package throwableapi;
 
-import java.io.IOException;
-
 /*
  * 
  * 自定义异常
