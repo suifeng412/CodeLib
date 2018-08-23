@@ -24,9 +24,20 @@ package collectionapi;
  *   Tree
  *  EnumSet
  *   
+ *  List
+ *  代表一个有序、可重复的集合，集合中每个元素都有对应的顺序索引
+ *  接口的实现：
+ *   ArrayList
+ *   Vector
+ *    Stack
+ *   LinkedLink
  *  
- * 
- * 
+ * Queue
+ * Queue用于模拟"队列"这种数据结构(先进先出 FIFO)
+ *  PrioriQueue
+ *  Deque
+ *   ArrayDeque
+ *   LinkedList
  * 
  * 
  * 
