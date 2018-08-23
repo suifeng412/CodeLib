@@ -1,8 +1,34 @@
 package collectionapi;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+
 /*
  * Collection
- * Map
+ * 接口基本方法：
+ * 1、add(E e)
+ * 2、addAll(Collection c)
+ * 3、clear()
+ * 4、contains(Object o) 	// 集合包含此元素返回ture
+ * 5、containsAll(Collection c) 
+ * 6、equals(Object o)
+ * 7、hashCode()
+ * 8、isEmpty()
+ * 9、iterator()			// 迭代器
+ * 10、remove(Object o)
+ * 11、removeAll(Collection c)
+ * 12、retainAll(Collection c)  // 仅保留collection中的元素
+ * 13、size()
+ * 14、toArray()
+ * 15、toArray(T[] a) // 指定返回数组类型
+ * 
+ * 迭代器：
+ * boolean hasNext()  // 判断是否还有元素可遍历
+ * E next()  // 迭代下一个元素
+ * 
+ * 
  * 大概分为四种：
  * 1、Set  	无序，唯一 
  * 2、List 	有序(索引)，非唯一
@@ -40,27 +66,68 @@ package collectionapi;
  *   LinkedList
  * 
  * 
- * 
- *
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * */
 
 
 public class note {
+	public static void main(String[] args){
+		testIteratorStr();
+        
+		testIterator();
+    }
+	
+	public static void testIteratorStr() {
+		List<String> list =Arrays.asList("java语言","C语言","C++语言");
+        Iterator<String> iterator = list.iterator();
+        while(iterator.hasNext()){
+            String next = iterator.next();
+            System.out.println(next);
+            next = "字符串修改=》相当于new一个新字符串";
+        }
+        System.out.println(list);
+	}
+	
+	
+	public static void testIterator() {
+		HashSet<Test> set = new HashSet<Test>();
+		Test t1 = new Test("t1，第一个对象");
+		Test t2 = new Test("t2，第二个对象");
+		Test t3 = new Test("t3，第三个对象");
+		set.add(t1);
+		set.add(t2);
+		set.add(t3);
+		Iterator<Test> iterator = set.iterator();
+		// 第一次遍历
+		while(iterator.hasNext()) {
+			Test t = iterator.next();
+			System.out.println(t.getStr());
+			t.setStr("遍历修改");
+		}
+		// 第二次遍历
+		Iterator<Test> iterator2 = set.iterator();
+		while(iterator2.hasNext()) {
+			Test t = iterator2.next();
+			System.out.println(t.getStr());
+		}
+	}
+	
+}
 
+
+
+class Test{
+	private String str;
+	
+	public Test(String str) {
+		this.str = str;
+	}
+	
+	public String getStr() {
+		return this.str;
+	}
+	
+	public void setStr(String str) {
+		this.str = str;
+	}
+	
 }
