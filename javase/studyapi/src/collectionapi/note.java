@@ -39,6 +39,7 @@ import java.util.List;
  * 这是Collection类的父接口，只要实现了Iterable就可以进行foreach遍历
  * 
  * Set
+ * 与Collection集合基本相同，没有提供额外的方法
  * 不能包含重复的元素、判断元素相等不能使用==，应该采用equals()方法
  * 因此需要注意的是：
  * 	1、为Set集合里面的元素实现一个equals方法
@@ -47,7 +48,7 @@ import java.util.List;
  *  HashSet
  *   LinkedHashSet
  *  SortedSet
- *   Tree
+ *   TreeSet
  *  EnumSet
  *   
  *  List
