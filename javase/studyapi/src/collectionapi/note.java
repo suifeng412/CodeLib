@@ -50,6 +50,15 @@ import java.util.List;
  *  SortedSet
  *   TreeSet
  *  EnumSet
+ *  总结：
+ *  1、HashSet比TreeSet性能好（TreeSet维护一个红黑色结构）
+ *  2、LinkedSHashSet比HashSet慢，遍历性能好（维护一个链表）
+ *  3、EnumSet性能最好，但只能保存同一个枚举类的枚举值作为集合元素
+ *  4、都不是线性安全，可通过Collections工具类的synchronizedSortedSet方法来"包装"该Set集合。
+ *  例如：SortedSet s = Collections.synchronizedSortedSet(new TreeSet(...));
+ *
+ *  
+ *  
  *   
  *  List
  *  代表一个有序、可重复的集合，集合中每个元素都有对应的顺序索引
