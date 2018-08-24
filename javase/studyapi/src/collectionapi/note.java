@@ -56,7 +56,7 @@ import java.util.List;
  *  3、EnumSet性能最好，但只能保存同一个枚举类的枚举值作为集合元素
  *  4、都不是线性安全，可通过Collections工具类的synchronizedSortedSet方法来"包装"该Set集合。
  *  例如：SortedSet s = Collections.synchronizedSortedSet(new TreeSet(...));
- *
+ *  专门提供一个遍历接口：
  *  
  *  
  *   
@@ -67,8 +67,16 @@ import java.util.List;
  *   Vector
  *    Stack
  *   LinkedLink
- *  
- *  
+ *  总结：
+ *  1、List提供一个线性表接口，ArrayList基于数据，LinkedLink基于链
+ *  2、Queue代表了队列，Deque代表了双端队列(既可以作为队列使用、也可以作为栈使用)
+ *  3、数组以一块连续内存来保存所有的数组元素，随机访问性能最好
+ *  4、内部以链表作为底层实现的集合在执行插入、删除操作时有很好的性能
+ *  5、进行迭代时，链比数组性能好
+ *  List还额外提供了一个迭代方法listIterator()，ListIterator接口继承Iterator，提供专门操作List方法
+ *  1、boolean hasPrevious(): 返回该迭代器关联的集合是否还有上一个元素
+ *  2、Object previous(): 返回该迭代器的上一个元素(向前迭代)
+ *  3、void add(): 在指定位置插入一个元素
  *  
  *  
  * Queue
@@ -122,6 +130,12 @@ public class note {
 			Test t = iterator2.next();
 			System.out.println(t.getStr());
 		}
+		
+		System.out.println("测试foreach遍历");
+		for (Object obj : set) {
+			System.out.println(((Test) obj).getStr());
+		}
+		
 	}
 	
 }
