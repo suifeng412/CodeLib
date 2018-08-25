@@ -35,8 +35,11 @@ public class TransferServlet extends HttpServlet {
 
 		String out = request.getParameter("out");
 		String in = request.getParameter("in");
+//		String out = "123";
+//		String in = "123";
 		String moneyStr = request.getParameter("money");
 		double money = Double.parseDouble(moneyStr);
+//		double money = 110;
 
 		TransferService service = new TransferService();
 		boolean isTransferSuccess = service.transfer(out, in, money);
