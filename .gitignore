@@ -28,6 +28,7 @@ Thumbs.db
 .project
 .settings/
 .metadata
+.recommenders
 
 # java web
 Servers
