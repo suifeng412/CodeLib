@@ -8,12 +8,22 @@ package ioapi;
  * 字符流
  * InputStream
  *  FileInputStream
+ *  FilterInputStream
+ *   BufferedInputStream
  *  
- * 
  * OutputStream
  *  FileOutputStream
+ *  BufferedReader
+ * 
+ * 字符流
+ * Reader
+ *  InputStreamReader
+ *  BufferedReader
  * 
  * 
+ * Writer
+ *  OutputStreamWriter
+ *  BufferedWriter
  * 
  * 
  * 
