@@ -35,9 +35,18 @@ import java.io.IOException;
  * */
 public class FileTest {
 	public static void main(String[] args) {
-		test();		// 两个常量
-		test2();	// 获取文件名路径
-		test3();	// 创建文件
+		test(); // 两个常量
+		test2(); // 获取文件名路径
+		test3(); // 创建文件
+
+		String fileName = "/Users/lijiechao/eclipse-workspace/CodeLib/";
+		File f = new File(fileName);
+		String[] str = f.list();
+		File[] fs = f.listFiles();
+		for (int i = 0; i < str.length; i++) {
+			System.out.println(str[i]);
+			System.out.println(fs[i]);
+		}
 	}
 
 	public static void test() {
@@ -70,20 +79,19 @@ public class FileTest {
 		 * getCanonicalPath:不但是全路径，而且把..或者.这样的符号解析出来。
 		 */
 	}
-	
+
 	public static void test3() {
-		File f=new File("file_io.txt"); 
-		if(!f.exists()){  
-		    try {  
-		        boolean flag = f.createNewFile();  
-		        System.out.println(flag?"success":"fail");		//fail  
-		    } catch (IOException e) {  
-		        // TODO Auto-generated catch block  
-		        e.printStackTrace();  
-		    }     
-		} 
-		f.delete(); 
+		File f = new File("file_io.txt");
+		if (!f.exists()) {
+			try {
+				boolean flag = f.createNewFile();
+				System.out.println(flag ? "success" : "fail"); // fail
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		f.delete();
 	}
-	
 
 }
