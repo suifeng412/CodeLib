@@ -11,5 +11,4 @@ package ioapi;
  * 
  * */
 public class BufferedWriterTest {
-
 }
