@@ -5,6 +5,7 @@ import java.io.IOException;
 
 /*
  * File
+ * 用于文件或者目录信息的描述信息
  * 构造方法：
  * 1、File(File parent, String child)
  * 2、File(String pathname)
