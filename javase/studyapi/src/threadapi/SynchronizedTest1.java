@@ -6,8 +6,9 @@ package threadapi;
  * 
  * 多个对象读多个锁、异步进行
  * 
- * 
- * 
+ * 同步不具备继承性
+ * 如果父类有一个带synchronized关键字的方法，子类继承并重写了这个方法。
+ * 但是同步不能继承，所以还是需要在子类方法中添加synchronized关键字。
  * 
  * */
 public class SynchronizedTest1 {
