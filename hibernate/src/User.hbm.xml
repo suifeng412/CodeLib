@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--文档说明，设置映射文件  -->
+<!DOCTYPE hibernate-mapping
+        SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<!--映射标签
+ package：内部类的所在的包名 -->
+<hibernate-mapping package="hibernate">
+    <!--需要设置的映射类：设置该类对应的表  -->
+    <!--属性：
+    name:类名
+    table:表名  -->
+    <class name="User" table="tb_user">
+    <!--id:主键，name:属性名称，column：字段名称  -->
+        <id name="id" column="id">
+            <!--generator:主键生成策略
+            class:标记主键如何生成
+            取值：
+            1、native：自动增长，会根据当前的数据库自动切换
+            2、identity：mySQL的自增策略
+            3、sequence：Oracle的自增标记
+            4、uuid:32位字符串
+            5、assigned:自定义字符串
+            6、foreign：外键
+            7、increment：自己维护自增关系
+              -->
+            <generator class="native"/>
+        </id>
+        <!--配置属性对应的字段  -->
+        <property name="name" length="16" column="username"/>
+        <property name="pass" length="32"/>  
+    </class>
+</hibernate-mapping>
