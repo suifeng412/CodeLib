@@ -22,6 +22,9 @@ import org.hibernate.cfg.Configuration;
  * 		get(Employee.class, 1)  主键查询
  * 		load(Enployee.class, 1)  主键查询，支持懒加载 
  * 
+ * 		findById()
+ * 		getAll()
+ * 
  * */
 
 public class Test {
