@@ -40,7 +40,7 @@
    notify()/notifyAll();  
    唤醒在此对象监视器上等待的单个线程/所有线程
     
-> * 13. protected void finalize();  
+>* 13. protected void finalize();  
    finalize方法主要与Java垃圾回收机制有关  
    其具体调用时机在：JVM准备对此对形象所占用的内存空间进行垃圾回收前，将被调用。
 
