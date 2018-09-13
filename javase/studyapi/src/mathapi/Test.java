@@ -1,7 +1,6 @@
-package studyapi;
+package mathapi;
 
-
-public class Api01 {
+public class Test {
 	public static void main(String args[]) {
 		/*
 		double num1,num2,num3;
@@ -29,6 +28,6 @@ public class Api01 {
 		System.out.println(i);
 		System.out.println(Integer.MIN_VALUE);
 		
-		
+		System.out.println(Math.sqrt(9));
 	}
 }
