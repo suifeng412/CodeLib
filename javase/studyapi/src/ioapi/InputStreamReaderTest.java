@@ -2,18 +2,7 @@ package ioapi;
 
 import java.io.*;
 
-/*
- * InputStreamReader
- * 输入字节流转换为字符流
- * 构造方法
- * InputStreamReader(InputStream in)
- * InputStreamReader(InputStream in, Charset cs)
- * InputStreamReader(InputStream in, CharsetDecoder dec)
- * InputStreamReader(InputStream in, String charasetName)
- * String getEncoding()
- * 
- * 
- * */
+// 输入字节流转换为字符流
 public class InputStreamReaderTest {
 	public static void main(String[] args) throws IOException {
 		String fileName= "hello.txt";
