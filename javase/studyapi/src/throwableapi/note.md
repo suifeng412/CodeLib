@@ -39,3 +39,50 @@ public void foo() throws ExceptionType1 , ExceptionType2 ,ExceptionTypeN
  * throw异常抛出语句必须写在函数中
  * 可以手动显式的抛出异常 后面必须是一个异常对象  eg.`throw exceptionObject`
 
+_异常链化：_  
+_以一个异常对象为参数构造新的异常对象。_  
+_新的异对象将包含先前异常的信息。_  
+_这项技术主要是异常类的一个带Throwable参数的函数来实现的。_    
+_这个当做参数的异常，我们叫他根源异常（cause）。_  
+
+#### 自定义异常
+ * 扩展Exception，这样子自定义的异常属于检查异常checked exception
+ * 扩展RuntimeExecption，则为非检查异常
+
+> 自定义异常包含如下构造函数：  
+
+可参照IOException类源码 
+* 无参构造函数
+* 带String参数的构造函数，
+* 带String参数和Throwable参数构造函数，向上传递
+* 带Throwable参数构造函数，向上传递
+
+> 异常的注意事项：  
+
+* 子类重写父类且带有throws声明函数时，其throws声明的异常必须在父类异常的可控范围内（即子类必须符合父类的要求）  
+_例如：_  
+父类方法throws 的是2个异常，子类就不能throws 3个及以上的异常。
+父类throws IOException，子类就必须throws IOException或者IOException的子类。
+
+```
+// 错误示例
+class Father
+{
+    public void start() throws IOException
+    {
+        throw new IOException();
+    }
+}
+ 
+class Son extends Father
+{
+    public void start() throws Exception
+    {
+        throw new SQLException();
+    }
+}
+```
+* java是多线程的，每一个线程都是一个独立的执行流，独立的函数调用栈。即线程中的错误不会影响到其他的线程，只会导致该线程的结束 
+
+
+
