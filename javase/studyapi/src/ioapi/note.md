@@ -107,6 +107,25 @@ public class FileInputStreamTest {
 ```
 
 
+> #### FileOutputStream
+
+字节文件输出流
+字节文件输出流是用于将数据写入到File，从程序中写入到其他位置。  
+构造方法：
+ * FileOutputStream(File file)
+ * FileOutputStream(File file, boolean append)
+ * FileOutputStream(String name)
+ * FileOutputStream(String name, boolean append)  
+ 
+常用方法：
+ 
+ * public void close() throws IOException{}
+ * protected void finalize()throws IOException {}  	清除与该文件的连接，确保在不再引用文件输入流时调用其 close 方法
+ * public void write(int w)throws IOException{}
+ * public void write(byte[] w)
+
+
+
 
 
 
