@@ -8,7 +8,7 @@
 	<!-- 配置一个包：package -->
 	<package name="demo1" extends="struts-default" namespace="/">
 		<!-- 配置Action -->
-		<action name="struts2Demo" class="struts2.action.Struts2Demo">
+		<action name="strutsDemo1" class="struts2.action.StrutsDemo1">
 		</action>
 	</package>
 
