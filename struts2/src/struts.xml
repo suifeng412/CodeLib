@@ -9,6 +9,8 @@
 	<package name="demo1" extends="struts-default" namespace="/">
 		<!-- 配置Action -->
 		<action name="strutsDemo1" class="struts2.action.StrutsDemo1">
+			<!-- 配置结果页面跳转 -->
+			<result name="success">/hello.jsp</result>
 		</action>
 	</package>
 
