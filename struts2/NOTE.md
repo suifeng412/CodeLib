@@ -54,7 +54,30 @@ Action元素的常用属性：
 
 
 
+> Struts2常量配置
 
+Struts2常量配置有三种方式：
+1、在struts.xml文件中使用<constant>元素配置  
+2、在struts.properties文件中配置
+3、在web.xml文件中通<init-param>元素配置
+
+```
+//1
+<constant name="struts.il8n.encoding" value="UTF-8" />
+<constant name="struts.devMode" value="true" />
+//2
+struts.il8n.encoding=UTF-8
+struts.devMode=true	
+//3
+ <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  	<init-param>
+  		<param-name>struts.il8n.encoding</param-name>
+  		</param-value?URF-8</param-value>
+  	</init-param>
+  </filter>
+```
 
 
 
