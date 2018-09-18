@@ -10,6 +10,11 @@
 <a href = "${pageContext.request.contextPath }/strutsDemo1.action">
 访问StrutsDemo1</a>
 
+<br/>
+
+<a href = "${pageContext.request.contextPath }/mydome.action">
+访问StrutsDemo2===mydome</a>
+
 
 </body>
 </html>

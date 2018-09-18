@@ -12,6 +12,10 @@
 			<!-- 配置结果页面跳转 -->
 			<result name="success">/hello.jsp</result>
 		</action>
+		
+		<action name="mydome" class="struts2.action.StrutsDemo2">
+			<result name="demo2">/demo2.jsp</result>
+		</action>
 	</package>
 
 
