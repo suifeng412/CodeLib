@@ -9,7 +9,7 @@
 		<!-- 配置Action -->
 		<action name="demo3" class="struts2.action.StrutsDemo3">
 			<!-- 配置结果页面跳转 -->
-			<result name="success">/demo2.jsp</result>
+			<result name="success">/demo1.jsp</result>
 		</action>
 	
 	</package>
