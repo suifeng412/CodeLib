@@ -7,12 +7,12 @@
 <title>demo1</title>
 </head>
 <body>
-<a href = "${pageContext.request.contextPath }/strutsDemo1.action">
+<a href = "${pageContext.request.contextPath }/demo1.action">
 访问StrutsDemo1</a>
 
 <br/>
 
-<a href = "${pageContext.request.contextPath }/mydome.action">
+<a href = "${pageContext.request.contextPath }/demo2.action">
 访问StrutsDemo2===mydome</a>
 
 

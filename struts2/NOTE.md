@@ -80,6 +80,12 @@ struts.devMode=true
 ```
 
 
+> 分模块开发  
+
+  `<include file="struts2/struts-shop.xml" />`
+
+
+
 
 
 

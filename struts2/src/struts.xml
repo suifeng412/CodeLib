@@ -3,25 +3,23 @@
 
 <struts>
 	
-	<constant name="struts.devMode" value="true" />
 	
-	<include file="strutsxml.demo3.xml"></include>
+	<include file="strutsxml/demo3.xml" />
 	
 	<!-- 配置一个包：package -->
-	<package name="demo1" extends="struts-default" namespace="/">
+	<package name="package-demo1" extends="struts-default" namespace="/">
 		<!-- 配置Action -->
-		<action name="strutsDemo1" class="struts2.action.StrutsDemo1">
+		<action name="demo1" class="struts2.action.StrutsDemo1">
 			<!-- 配置结果页面跳转 -->
 			<result name="success">/hello.jsp</result>
 		</action>
 		
-		<action name="mydome" class="struts2.action.StrutsDemo2">
+		<action name="demo2" class="struts2.action.StrutsDemo2">
 			<result name="demo2">/demo2.jsp</result>
 		</action>
 	</package>
-
-
-
+	
+	
 </struts>
 
 
