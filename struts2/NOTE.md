@@ -141,6 +141,21 @@ public class ActionDemo3 extends ActionSupport{
 
 
 
+> Struts2访问Servlet的API  
+##### 通过ActionContext类访问  
+
+ActionContext是Action执行的上下文对象，在ActionContext中保存了Action执行所需要的所有对象，包括parameters、reqyest、session、application  
+* void put(String key, Object value)		将key-value键值放入到该对象中（模拟Servlet API中的HttpServletRequest的setAttribute()方法）  
+* Object get(String key)  
+* Map<String, Object> getApplication		返回一个Application级的Map对象  
+* static ActionContext getContext()		获取当前线程的ActionContext对象  
+* Map<String, Object> getParameters()	返回一个包含有所有的HttpServletRequest参数信息的Map对象
+* Map<String, Object> getSession() 		
+* void setApplication(Map<String, Object> application)  
+* void setSession(Map<String, Object> session)
+
+
+
 
 
 

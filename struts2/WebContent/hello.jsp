@@ -15,7 +15,13 @@
 <a href = "${pageContext.request.contextPath }/link_check2.action">demo5-2 跳转</a> <br/>
 <a href = "${pageContext.request.contextPath }/link_check3.action">demo4-3 跳转</a> <br/>
 
+<br/>
+测试actioncontext<br/>
+${reqName}
+${sessName}
 
-测试
+
+
+
 </body>
 </html>
