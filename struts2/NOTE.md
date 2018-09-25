@@ -172,6 +172,13 @@ public String execute() throws Exception {
 }
 ```
 
+##### 通过ServletActionContext访问  
+为了直接访问Servlet API Struts2框架提供了ServletActionContext类，该类包含了几个常用的静态方法： 
+static HttpServletRequest getRequest()
+static HttpServletResponse getResponse()
+static ServletContext getServletContext()  
+static PageContext getPageContext()    
+
 
 
 

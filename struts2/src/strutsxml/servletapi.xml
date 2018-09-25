@@ -13,6 +13,10 @@
 		<action name="requestDemo" class="struts2.action.RequestDemo">
 			<result name="success">/hello.jsp</result>
 		</action>
+		
+		<action name="requestDemo2" class="struts2.action.RequestDemo2">
+			<result name="success">/hello.jsp</result>
+		</action>
 	
 	</package>
 
