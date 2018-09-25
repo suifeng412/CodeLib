@@ -85,6 +85,78 @@ struts.devMode=true
   `<include file="struts2/struts-shop.xml" />`
 
 
+> Action编写方式
+
+##### Action是一个POJO类  
+不继承实现任何特殊类  
+默认一个无参public构造函数
+无参返回字符串的execute()方法
+
+```
+public class StrutsDemo1 {
+	/**
+	 * 提供一个默认的执行方法：execute
+	 * return 返回的是一个视图名称
+	 * @return
+	 */
+	public String execute() {
+		System.out.println("这是Struts2Demo中的exexute。。。。");
+		return "success";
+	}
+}
+```
+##### Action类实现一个Actio接口  
+Struts2提供一个action接口
+
+```
+public calss ActionDemo2 implements Action{
+	@Override
+	public String execute() throws Exception{
+		System.out.println("dfafafa");
+		return null;
+	}
+}
+```
+定义了5个常量：
+SUCCESS  
+NONE		代表页面不跳转  
+ERROR  
+INPUT	数据校验的时候跳转的路径  
+LOGIN  
+
+##### Action类继承ActionSupport类  
+ActionSupport类本身实现了Action接口，是Struts2中默认的Action接口实现类  
+该类还实现了Validateable、ValidationAware、TextProvider、LocaleProvider、Serializable等接口  
+
+```
+public class ActionDemo3 extends ActionSupport{
+	public Strubg execute() throws Exception{
+		System.out.println("ddada");
+		return NONE;
+	}
+}
+```
+通配符配置：  
+``<global-allowed-methods>regex:.*</global-allowed-methods> // 2.5新添加的``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

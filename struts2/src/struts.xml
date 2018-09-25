@@ -6,6 +6,8 @@
 	
 	<include file="strutsxml/demo3.xml" />
 	
+	<include file="strutsxml/demo5.xml" />
+	
 	<!-- 配置一个包：package -->
 	<package name="package-demo1" extends="struts-default" namespace="/">
 		<!-- 配置Action -->
@@ -17,6 +19,11 @@
 		<action name="demo2" class="struts2.action.StrutsDemo2">
 			<result name="demo2">/demo2.jsp</result>
 		</action>
+		
+		<action name="demo4" class="struts2.action.StrutsDemo4">
+			<result name="demo4">/demo2.jsp</result>
+		</action>
+		
 	</package>
 	
 	
