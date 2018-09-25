@@ -8,7 +8,10 @@
 		
 		<action name="actioncontext1" class="struts2.action.ActionContextTest" method="servletTest">
 			<result name="success">/hello.jsp</result>
+		</action>
 		
+		<action name="requestDemo" class="struts2.action.RequestDemo">
+			<result name="success">/hello.jsp</result>
 		</action>
 	
 	</package>

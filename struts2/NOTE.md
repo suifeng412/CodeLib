@@ -152,10 +152,25 @@ ActionContext是Action执行的上下文对象，在ActionContext中保存了Act
 * Map<String, Object> getParameters()	返回一个包含有所有的HttpServletRequest参数信息的Map对象
 * Map<String, Object> getSession() 		
 * void setApplication(Map<String, Object> application)  
-* void setSession(Map<String, Object> session)
+* void setSession(Map<String, Object> session)  
+  
+##### 通过特定接口访问   
+ServletRequestAware  
+ServletResponseAware  
+SessionAware  
+ServletContextAware  
 
+```
+public void setServletRequest(HttpServletRequest request) {
+	this.request = request;
+}
 
-
+public String execute() throws Exception {
+	System.out.println("测试看有没有访问");
+	request.setAttribute("message", "request.....");
+	return SUCCESS;
+}
+```
 
 
 

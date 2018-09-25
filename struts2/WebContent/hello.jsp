@@ -16,9 +16,12 @@
 <a href = "${pageContext.request.contextPath }/link_check3.action">demo4-3 跳转</a> <br/>
 
 <br/>
-测试actioncontext<br/>
-${reqName}
-${sessName}
+
+
+<br/>
+测试requestAware<br/>
+${ requestScope.message }
+
 
 
 
