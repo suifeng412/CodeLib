@@ -231,9 +231,16 @@ public void setName(String name) {
 	}
 ```
 
-  
+##### 模型驱动  
+通过实现ModelDriven接口来接收请求参数，action类必须实现ModelDriven接口，并且重写getModel方法  
 
-
+```
+private User user = new User();
+	
+public User getModel() {
+	return user;
+}
+```
 
 
 

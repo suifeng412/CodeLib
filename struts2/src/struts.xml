@@ -35,6 +35,9 @@
 		<action name="form2" class="struts2.action.FormDemo2">
 			<result name="success">/demo2.jsp</result>
 		</action>
+		<action name="form3" class="struts2.action.FormDemo3">
+			<result name="success">/demo2.jsp</result>
+		</action>
 		
 	</package>
 	
