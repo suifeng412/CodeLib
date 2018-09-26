@@ -242,6 +242,8 @@ public User getModel() {
 }
 ```
 
+> 封装到List集合中  
+
 
 
 

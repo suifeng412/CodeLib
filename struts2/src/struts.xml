@@ -39,6 +39,11 @@
 			<result name="success">/demo2.jsp</result>
 		</action>
 		
+		
+		<action name="formlist1" class="struts2.action.FormListDemo1"></action>
+		<action name="formmap1" class="struts2.action.FormMapDemo1"></action>
+
+		
 	</package>
 	
 	
