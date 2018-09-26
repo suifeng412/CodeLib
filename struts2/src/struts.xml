@@ -26,6 +26,16 @@
 			<result name="demo4">/demo2.jsp</result>
 		</action>
 		
+		
+		
+		
+		<action name="form1" class="struts2.action.FormDemo1">
+			<result name="success">/demo2.jsp</result>
+		</action>
+		<action name="form2" class="struts2.action.FormDemo2">
+			<result name="success">/demo2.jsp</result>
+		</action>
+		
 	</package>
 	
 	

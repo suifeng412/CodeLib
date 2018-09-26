@@ -180,6 +180,60 @@ static ServletContext getServletContext()
 static PageContext getPageContext()    
 
 
+> 结果页面的配置  
+
+##### 全局结果页面配置
+只在同一个包下面配置的Action中返回的相同的字符串都可以跳转到该页面
+
+```
+<global-results>
+	<result name="success">/success.jsp</result>
+</global-results>
+
+```
+##### 局部结果页面配置
+只对action有效
+
+##### ResultType  
+type总的类型  
+* chain			用来处理Action链，被跳转的Action中仍能获取上个页面的值，如request
+* dispatcher		用来转向页面，通常处理jsp，【默认】  
+* freemarker		用来整合FreeMarker模板结果类型  
+* httpheader		用来处理特殊的HTTP行为结果类型  
+* redirect		重定向一个URL，丢失页面信息  
+* redirectAction		重定向到一个action，丢失页面信息  
+* stream			向浏览器发送InputStream对象，通常用来处理文件下载  
+* velocity		整合Velocity模板结果类型  
+* xslt			XML/XSLT结果类型  
+* plainText		原始文件  
+* postback		使得当前请求参数以表单的形式提交  
+
+
+> Struts的数据封装  
+
+##### 属性驱动  
+提供属性的set方法的方式：
+
+```
+// 为每一个属性建一个set方法
+// 缺点，属性多的时候雷同的方法过多
+public void setName(String name) {
+		this.name = name;
+	}
+```
+
+页面提供表达式方法  
+
+```
+// 必须提供该get方法
+	public User getUser() {
+		return user;
+	}
+```
+
+  
+
+
 
 
 
