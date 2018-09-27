@@ -244,14 +244,86 @@ public User getModel() {
 
 > 封装到List集合中  
 
+```
+<form action="${pageContext.request.contextPath}/formlist1.action" method="post">
+姓名0：<input type="text" name="list[0].name" /> <br/>
+年龄0：<input type="text" name="list[0].age" /> <br/>
+姓名1：<input type="text" name="list[1].name" /> <br/>
+年龄1：<input type="text" name="list[1].age" /> <br/>
+姓名2：<input type="text" name="list[2].name" /> <br/>
+年龄2：<input type="text" name="list[2].age" /> <br/>
+<input type="submit" value="提交" />
+
+</form>	
+
+// Action
+private List<User> list;
+	
+public List<User> getList() {
+	return list;
+}
+	
+public void setList(List<User> list) {
+	this.list=list;
+}
+```
+
+> 封装到Map中  
+
+```
+<form action="${pageContext.request.contextPath}/formmap1.action" method="post">
+姓名0：<input type="text" name="map'one'].name" /> <br/>
+年龄0：<input type="text" name="map['one'].age" /> <br/>
+姓名1：<input type="text" name="map['two'].name" /> <br/>
+年龄1：<input type="text" name="map['two'].age" /> <br/>
+姓名2：<input type="text" name="map['three'].name" /> <br/>
+年龄2：<input type="text" name="map['three'].age" /> <br/>
+<input type="submit" value="提交" />
+
+</form>	
+
+// Action
+private Map<String, User> map;
+	
+public Map<String, User> getMap() {
+	return map;
+}
+	
+public void setMap(Map<String, User> map) {
+	this.map = map;
+}
+```
+
+> OGNL 
+
+全称是对象图导航语言（Object-Graph Navigation Language），功能强大的开发表达式语言。
+
+##### OGNL作用
+* 支持对象方法调用  
+* 支持类静态方法调用和值访问  
+* 支持赋值操作和表达式串联  
+* 访问OGNL上下文和ActionContext
+* 操作集合对象  
+
+##### OGNL的要素
+* 表达式 要做什么  
+* 跟对象 对谁操作  
+* Context对象 在哪里进行  
 
 
+##### 值栈
+ValueStack是Struts的一个借口，OgnlValueStack是ValueStack的实现类。  
+客户端发起一个请求struts2架构会创建一个action实例的同时创建一个OgnlValueStack值栈实例，将贯穿整个Action的生命周期  
 
-
-
-
-
-
+##### 值栈内部结构
+=》Context：即OgnlContext上下文，它是一个map结构，上下文中存储了一些引用  
+parameters：该Map中包含当前请求的请求参数  
+request：  
+session：  
+application：  
+attr：按上面的顺序检索
+=》CompoundRoot：存储了action实例，它作为OgnlContext的Root对象  
+继承ArrayList实现压栈和出栈功能
 
 
 
