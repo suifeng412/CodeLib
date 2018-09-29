@@ -193,6 +193,45 @@ ApplicationContext applicationContext = new ClassPathXmlApplicationContext("appl
 
 
 
+> Spring的Bean的管理注入的方式
+
+##### 步骤
+* 引入约束，与xml约束不一样！！！  
+* 编写相关的类  
+* 配置文件--配置注释扫描配置（具体到包名即可、xml具体到类名）  
+* 在相关的类中添加注解  
+
+
+##### Spring的Bean管理中常用的注释  
+Spring中提供@Component的三个衍生注释：  
+目前功能是一样的，采用不同的字符，可以使标注类本身的用途更清晰  
+* @Controller	：WEB层  
+* @Service		：业务层
+* @Repository	：持久层  
+
+##### 属性注入的注解
+使用注解注入的方式，可以不用提供set方法  
+* @value		：用于注入普通类型  
+* @Autowried		：自动装配  
+	默认按类型进行装配  
+	按名称注入
+* @Qualifier	：强制使用名称注入
+* @Resource	：相当于@Autowried和@Qualifier一起使用
+
+##### Bean的作用范围的注解  
+@Scope：singleton单例、prototype多例  
+
+##### Bean的生命周期的配置  
+@PostConstruct :相当于init-method   
+@PreDestroy  :相当于destroy-method
+
+##### Spring的Bean管理的方式比较  
+定义方式	：	<bean id="**" class="**"/>；@Component.....  
+名称		：	通过id或者name；@Component("person")  
+注入		：	<property>或p命名空间；@AutoWried按类型注入、@Qualifier按名称注入  
+生命过程、Bean作用范围	：	init-method、destroy-method、范围scope属性；@PostConstruct、@PreDestroy、@Scope  
+适用场景	：	Bean来自第三方；Bean实现类由自己开发  
+
 
 
 

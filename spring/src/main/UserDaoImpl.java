@@ -1,11 +1,13 @@
 package main;
 
-public class UserDaoImpl implements UserDao {
+import org.springframework.stereotype.Component;
 
+@Component(value="userDao")
+public class UserDaoImpl implements UserDao {
 	@Override
 	public void sayHello() {
 		// TODO Auto-generated method stub
-		System.out.println("override。。。");
+		System.out.println("override。。。。。。。");
 	}
 
 }
