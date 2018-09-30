@@ -33,5 +33,6 @@
         <!--3、加载配置文件  -->
         <!--基于xml映射文件： 映射文件加载。路径 -->
         <mapping resource="User.hbm.xml"></mapping>
+        <mapping resource="UserInfo.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

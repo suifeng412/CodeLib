@@ -30,9 +30,9 @@ import org.hibernate.cfg.Configuration;
 public class Test {
 	public static void main(String[] args) {
 		Session session = getSession();
-		//test(session);
-		testUpdate(session);
-		testSelect(session);
+		test(session);
+//		testUpdate(session);
+//		testSelect(session);
 	}
 	
 	
@@ -59,7 +59,11 @@ public class Test {
 		// 开启事务
 		// Transaction tx = session.beginTransaction();
 		// 4、操作数据
-		System.out.println(session.save(new User("测试", "666666")));
+//		System.out.println(session.save(new User("测试2", "6665525666")));
+		User user = new User();
+		user.setName("set赋值");
+		user.setPass("dafa3tr");
+		session.save(user);
 		// 提交事务
         // tx.commit();
 		// 5、关闭

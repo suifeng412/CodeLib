@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping
+        SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="hibernate2">
+
+    <class name="UserInfo" table="admin_userinfo">
+
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        
+
+        <property name="name" length="50" column="name" type="string"/> 
+        <property name="uid" length="11" column="uid" type="int"/>
+        <property name="workPhone" length="11" column="workPhone" type="string"/> 
+        <property name="wechat" length="11" column="wechat" type="string"/> 
+        <property name="company" length="10" column="company" type="int"/>
+        <property name="department" length="10" column="department" type="int"/>
+        <property name="creatorUid" length="11" column="creatorUid" type="int"/>
+        <property name="updatorUid" length="11" column="updatorUid" type="int"/>
+		<property name="remark" length="500" column="remark" type="string"/> 
+
+   
+    </class>
+</hibernate-mapping>
