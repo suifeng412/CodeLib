@@ -130,6 +130,74 @@ hibernate类型详解：
 </hibernate-configuration>
 ```
 
+##### Configuration 配置对象
+Configuration主要用于Hibernate框架加载核心配置文件，启动、加载、管理Hibernate的配置文件信息  
+步骤：Configuration确定配置文件位置，读取相关配置，最后创建一个SessionFactory实例   
+Configuration主要存在于初始化阶段，创建Session实例后就完成自己的使命。
+`Configuration config = new Configuration().config();`  
+主要：  
+* 配置文件（hibernate.cfg.xml，可以使用properties配置）默认src目录下， 可以在config()方法加路径参数    
+* 当使用properties配置文件时，则需要使用Configuration额外配置映射文件  `configuration.addResource("***");`
+
+##### SessionFactory 对象
+负责Hibernate初始化，和Session建立，在整个流查询程中起到了缓冲区的作用，Hibernate可以将生成的SQL、映射数据、以及其他可重复利用的数据存储到该缓冲区中。同时还保存着数据库配置的所有映射关系，维护着当前的二级缓存。
+
+```
+SessionFactory sessionFactory = cfg.buildSessionFactory();
+```
+特点：  线程安全、重量级，不能随机创建和销毁实例
+一般情况下，个项目中只需保存一个SessionFactory实例就可以了（多个数据源除外）。   
+Hibernate内部维护一个线程池，可以配置使用其他（例如：C3P0）。   
+
+##### Session 对象  
+Session是应用程序和数据库交互数据的一个单线程对象，是Hibernate运作中心，主要功能是为持久化对象实现创建、读取、删除。  
+获取Session的两种方式：  
+* `Session session = sessionFactory.openSession();` 需要手动clost()
+* `Session session = sessionFactory.getCurrentSession()` 绑定到当前形成，会自动close
+注意：  
+* Seesion是线程不安全的，避免多个线程使用同一个Session；  
+* 轻量级，创建销毁损耗资源不大  
+提供的方法：  
+* save()、update()、saveOrUpdate()
+* delete()
+* get()、load()根据主键查询
+* createQuery()、createSQLQuery()用于数据库操作对象
+* createCriteria()用于条件查询
+
+##### Transaction
+主要用于管理事务  
+
+```
+Transaction tx = session.beginTransaction();
+tx.commit();
+tx.rollback();
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
