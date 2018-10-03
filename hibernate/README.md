@@ -214,10 +214,10 @@ Session接口中实现一系列的java集合，这些集合构成了Session缓�
 * 1|READ_UNCOMMIT 允许读取未提交改变了的数据，可能导致脏读、幻读、不可重复的
 * 2|READ_COMMIT	允许在并发事务已经提交后读。可防止脏读（Oracle默认）
 * 4|REPEATABLE_READ	对相同字段读取是一致的。可防止脏读、不可重复读（Mysql默认）
-* 8|SERIALIZABLE	完全ACID，通过所锁表实现
-Hibernate中的事务管理：  
+* 8|SERIALIZABLE	完全ACID，通过所锁表实现  
+Hibernate中的事务管理：   
 1、设置事务隔离配置 hibernate.cfg.xml 
-`<property name="hibernate.connection.isolation">4</property>`
+`<property name="hibernate.connection.isolation">4</property>`  
 2、事务中保证使用同一Session  
 在业务层中获取Session传入DAO；将业务层获取的Session绑定到ThreadLocal  
 管理Session的三种方法：  
@@ -227,9 +227,26 @@ Hibernate中的事务管理：
 在hibernate.cfg.xml中配置：  
 `<property name="hibernate.current_session_context_class">thread</property>`
 
+##### Hibetnate其他API
+Query:  
+代表面向对象的一个Hibernate查询。通常使用session.createQuery()方法接收一个HQL语句，然后调用Query中的list()方法或uniqueResult()执行查询。  
+步骤：  
+1、获取Session对象  
+2、编写HQL语句  
+3、调用createQuery()创建查询对象  
+4、调用Query的set**()设置参数  
+5、调用Query()中的list()或者uniqueResult()  
 
+Criteria:(hibernate已经不推荐使用)    
+步骤：  
+1、获取Session对象  
+2、通过Session获取Criteria对象  
+3、使用Restrictions的静态方法创建Criteria条件对象，返回Criteria对象  
+4、向Criteria对象中添加查询条件，add()方法  
+5、执行Criteria方法的list()或者uniqueResult()方法  
 
-
+SQLQuery:  
+接收原生sql语句执行
 
 
 

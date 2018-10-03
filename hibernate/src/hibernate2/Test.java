@@ -1,15 +1,22 @@
 package hibernate2;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class Test {
 	public static void main(String[] args) {
 		Session session = getSession();
 		// test(session);
-		demo1(session);
+//		demo1(session);
+		
+		demoQuery(session);
 	}
 	
 	public static void demo1(Session session) {
@@ -54,5 +61,27 @@ public class Test {
 		
 		return factory.openSession();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public static void demoQuery(Session session) {
+		Query<UserInfo> query = session.createQuery("from UserInfo");
+//		query.setParameter("name", "随风");
+//		query.setParameter("phone", "17324211111");
+//		query.setString("name", "随风");
+//		query.setString("phone", "17324211111");
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		List<UserInfo> list = (List<UserInfo>) query.list();
+		System.out.println(list);
+		
+	}
+
+//	public static void demoCriteria(Session session) {
+//		Criteria criteria = session.createCriteria("UserInfo.class");
+//	}
+	
+//	public static void demoSql(Session session) {
+//		SQLQuery sqlQuery = session.createSQLQuery("select*from admin_userinfo");
+//	}
 	
 }
