@@ -16,3 +16,41 @@
 N2/2
 
 
+# 插入排序  
+> 简介  
+
+将一个元素插入到左边已有序的数组中，此时需要给插入的元素腾出位置，将大于新插元素的所有元素向右移动一位。  
+与选择排序最大的不同在于：   
+* 插入排序遍历左边已有序的元素，找到合适的位置插入；
+* 选择排序则遍历右边无序的元素，找到最小的元素放入左边末尾。  
+这样将会导致两种排序的不同性能，插入排序所需的时间取决于输入的元素的初始位置。   
+
+```
+public static void sort(Comparable[] a) {
+	int n = a.length;
+	for (int i = 0; i < n; i++) {
+    	for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
+       		exch(a, j, j-1);
+       	}
+       assert isSorted(a, 0, i);
+   	}
+   	assert isSorted(a);
+}
+```
+![image](https://github.com/suifeng412/CodeLib/blob/master/algorithm/public/2018-10-03_112340.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
