@@ -16,7 +16,9 @@ public class Test {
 		// test(session);
 //		demo1(session);
 		
-		demoQuery(session);
+//		demoQuery(session);
+		
+		demoSql(session);
 	}
 	
 	public static void demo1(Session session) {
@@ -80,8 +82,10 @@ public class Test {
 //		Criteria criteria = session.createCriteria("UserInfo.class");
 //	}
 	
-//	public static void demoSql(Session session) {
-//		SQLQuery sqlQuery = session.createSQLQuery("select*from admin_userinfo");
-//	}
+	public static void demoSql(Session session) {
+		@SuppressWarnings("unchecked")
+		List<UserInfo> list = session.createSQLQuery("select*from admin_userinfo").list();
+		System.out.println(list);
+	}
 	
 }

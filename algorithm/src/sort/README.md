@@ -40,6 +40,12 @@ public static void sort(Comparable[] a) {
 ![image](https://github.com/suifeng412/CodeLib/blob/master/algorithm/public/2018-10-03_112340.jpg)
 
 
+# 希尔排序
+> 简介
+
+基于插入排序的一种优化版本排序  
+与基础插入排序不同的是，它将数据分割成多个，各自进行排序整合。（以间隔h的方式进行）
+![image](https://github.com/suifeng412/CodeLib/blob/master/algorithm/public/2018-10-04_163048.jpg)
 
 
 
