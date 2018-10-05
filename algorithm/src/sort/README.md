@@ -37,15 +37,28 @@ public static void sort(Comparable[] a) {
    	assert isSorted(a);
 }
 ```
-![image](https://github.com/suifeng412/CodeLib/blob/master/algorithm/public/2018-10-03_112340.jpg)
+![image](https://raw.githubusercontent.com/suifeng412/CodeLib/master/algorithm/public/2018-10-03_112340.jpg)
 
 
 # 希尔排序
 > 简介
 
 基于插入排序的一种优化版本排序  
-与基础插入排序不同的是，它将数据分割成多个，各自进行排序整合。（以间隔h的方式进行）
-![image](https://github.com/suifeng412/CodeLib/blob/master/algorithm/public/2018-10-04_163048.jpg)
+与基础插入排序不同的是，它将数据分割成多个，各自进行排序整合。（以间隔h的方式进行）  
+![image](https://raw.githubusercontent.com/suifeng412/CodeLib/master/algorithm/public/2018-10-04_163048.jpg)
+
+
+# 归并排序
+> 简介
+
+将一个要排序的数组递归地将它分成两半分别排序，然后将结果归并成为一个大数组。  
+主要缺点就是需要额外的空间与N成正比    
+![image](https://raw.githubusercontent.com/suifeng412/CodeLib/master/algorithm/public/2018-10-05_162422.jpg)  
+扩展：  
+在使用归并排序的时候，可以采用选择、插入等排序方法将数组分割进行排序，最后才归整理。
+
+
+
 
 
 
