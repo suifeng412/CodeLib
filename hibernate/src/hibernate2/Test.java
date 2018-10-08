@@ -22,7 +22,7 @@ public class Test {
 		Session session = sessionFactory.openSession();
 		*/
 		// 开启事务
-		//Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		// 执行操作
 		UserInfo userInfo = new UserInfo();
 		userInfo.setName("java测试");
@@ -39,7 +39,7 @@ public class Test {
 		
 		session.save(userInfo);
 		//提交事务
-		//tx.commit();
+		tx.commit();
 		// 释放资源
 		session.close();
 		
