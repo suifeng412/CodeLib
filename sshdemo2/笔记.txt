@@ -1,0 +1,21 @@
+1.新建一个项目  导入必须的jar包
+2.创建db.properties文件并配置
+3.创建hibernate.cfg.xml并配置
+4.创建applicationContext.xml引入资源文件并配置c3p0数据源
+5.在applicationContext.xml中配置sessionfactory
+6.在applicationContext.xml中配置spring声明事务
+	 1.配置hibernate事务管理器 
+	 2.配置事务属性
+	 3.配置事务切入点, 再把事务属性和事务切入点关联起来 
+7.配置applicationContext.xml开启自动扫描指定包上类的注解
+8.在web.xml 中配置 spring 监听 和  struts核心过滤器
+9.创建包层结构
+10.在pojo层创建User实体 以及对应的User.hbm.xml映射文件
+11.在dao层创建UserDao接口 以及对应的接口实现类 UserDaoImpl
+12.在service层创建UserService接口以及对应的接口实现类UserServiceImpl
+13.在action层创建UserAction 
+	1.继承ActionSuport（需要用到里边的常量）
+	2.实现ModelDriven<User>接口（new 一个User对象接收）
+	3.实现UserAction的对应方法
+14.在struts.xml中配置UserAction
+15.编写jsp文件
