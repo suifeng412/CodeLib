@@ -15,19 +15,17 @@
 
 
 	<!-- Spring的注解开发:组件扫描(类上注解: 可以直接使用属性注入的注解) -->
-	<context:component-scan base-package="main"></context:component-scan>
+	<context:component-scan base-package="aopxml" />
 
-	<context:component-scan base-package="aopxml"></context:component-scan>
+
 	<bean id="orderDao" class="aopxml.OrderDaoImpl"></bean>
-
-
 	<!-- 配置切面类 -->
 	<bean id="myAspectXml" class="aopxml.MyAspectXml"></bean>
 
-	<!-- 进行aop的配置 -->
+	<!-- 进行aop的配置  配置aop包要齐全-->
 	<aop:config>   <!-- 配置切入点表达式:哪些类的哪些方法需要进行增强 -->
 		<aop:pointcut
-			expression="execution(* aopxml.OrderDao.save(..))" id="pointcut1" />   <!-- 配置切面 -->
+			expression="execution(* aopxml.*.*(..))" id="pointcut1" />   <!-- 配置切面 -->
 		<aop:aspect ref="myAspectXml">
 			<aop:before method="before" pointcut-ref="pointcut1" />
 		</aop:aspect>
