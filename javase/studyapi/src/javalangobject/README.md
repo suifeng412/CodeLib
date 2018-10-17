@@ -1,38 +1,56 @@
 #  Object
 > Object 是java对象的基类，定义了13个方法，没有属性
 
-##### 1.类构造器public Object();  
+1.类构造器public Object();  
 
-##### 2.private static native void registerNatives();   
+2.private static native void registerNatives();   
 * native关键字修饰的函数，是在C/C++实现的，并编译成dll文件，由java调用  
 * 该方法的作用将C/C++中的方法映射到Java中的native方法，实现方法命名的解耦。  
 
-#####  3.protected native Object clone() throws CloneNotSupportedException;
+3.protected native Object clone() throws CloneNotSupportedException;
 * clone采用的是值传递方式，全新的一个对象
+```
+// clone()的正确调用是需要实现Cloneable接口，如果没有实现Cloneable接口，直接调用clone()，将会抛出CloneNotSupportedException异常。
+// Cloneable接口仅是一个表示接口，接口本身不包含任何方法，用来指示Object.clone()可以合法的被子类引用所调用。
+public class CloneTest implements Cloneable {
+	public static void main(String args[]) {
+//		Object obj = new CloneTest();
+		CloneTest obj = new CloneTest();
+		try {
+			CloneTest obj2 = (CloneTest) obj.clone();
+			System.out.println("obj:" + obj);
+			System.out.println("ot2:" + obj2);
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+```
  
-#####  4.public final native Class<?> getClass();
+4.public final native Class<?> getClass();
 * getClass()也是一个native方法，返回的是此Object对象的类对象/运行时类对象Class<?>。效果与Object.class相同。
    
-#####  5.public boolean equals(Object obj);  
-* “==”表示的是变量值完成相同（对于基础类型，地址中存储的是值，引用类型则存储指向实际对象的地址）  
+5.public boolean equals(Object obj);  
+* “==”表示的是变量值完全相同（对于基础类型，地址中存储的是值，引用类型则存储指向实际对象的地址）  
 * equals表示的是对象的内容完全相同，此处的内容多指对象的特征/属性。  
 * Object类中定义该方法实现为==，一般需要重写再用  
 * [重写equals()方法必须重写hasCode()方法。]  
 
-#####  6.public native int hashCode();  
+6.public native int hashCode();  
 * hashCode()方法返回一个整形数值，表示该对象的哈希码值。  
-* 首先、同一次执行是多次调用的该方法返回的哈希码相同，期间equals方法没改  
+* 首先、同一次执行时多次调用的该方法返回的哈希码相同，期间equals方法没改  
 * 其次、equals相等，那么哈希值必须相同  
 * 最后、反过来，哈希值相同，两个对象不一定相等   
 * =》主要作是用于集合中的判断，用有序的哈希表值进行判断，性更更高  
 
-#####  7.public String toString();  
+7.public String toString();  
 * toString()方法返回该对象的字符串表示  
 * 内部实现：return getClass().getName() + "@" + Integer.toHexString(hashCode());  
 * 返回类型+哈希值的十六进制数  
 * =》即不同对象的toString可能相同  
 
-#####  8~12  
+8~12  
 * wait();  
 * 调用此方法所在的当前线程等待，直到在其他线程上调用该方法的主调 notify()、notifyAll()
 * wait(long timeout)/wait(long timeout, int nanos);  
@@ -40,14 +58,6 @@
 * notify()/notifyAll();  
 * 唤醒在此对象监视器上等待的单个线程/所有线程
   
-#####  13. protected void finalize();  
+13. protected void finalize();  
 * finalize方法主要与Java垃圾回收机制有关  
 * 其具体调用时机在：JVM准备对此对形象所占用的内存空间进行垃圾回收前，将被调用。
-
-# 注意：
-* protected问题  
-  protected修饰的属性或方法表示：在同一个包内或者不同包的子类可以访问。  
-  (主调者为子类对象的引用才可以；主调者为父类对象引用是则不可以)
-* clone问题  
-  clone()的正确调用是需要实现Cloneable接口，如果没有实现Cloneable接口，将会报错
-
