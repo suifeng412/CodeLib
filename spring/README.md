@@ -80,7 +80,7 @@ public class Bean3Factory{
 ```
 // 构造方法的方式注入属性
 <bean id="car" class="cn.itcast.spring.demo4.Car">   
-	<constructor-arg name="name" value="保时捷"/>   
+	<constructor-arg name="name" value="123" index="0" type="java.lang.Integer"/>   
 	<constructor-arg name="price" value="1000000"/> 
 </bean>  
 
