@@ -90,15 +90,73 @@ public static void sort(Comparable[] a) {
 
 将一个要排序的数组递归地将它分成两半分别排序，然后将结果归并成为一个大数组。  
 主要缺点就是需要额外的空间与N成正比    
-有序数组归并：   
+
+有序数组归并：  
+
+> 实现代码
+
+```
+	public void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+        // 判断是否有序
+        assert isSorted(a, lo, mid);
+        assert isSorted(a, mid+1, hi);
+
+        // copy to aux[]
+        for (int k = lo; k <= hi; k++) {
+            aux[k] = a[k]; 
+        }
+
+        int i = lo, j = mid+1;
+        for (int k = lo; k <= hi; k++) {
+            if      (i > mid)              a[k] = aux[j++];
+            else if (j > hi)               a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else                           a[k] = aux[i++];
+        }
+    }
+```
 ![image](https://raw.githubusercontent.com/suifeng412/CodeLib/master/algorithm/public/2018-11-04_171725.jpg)
+
 无序数组归并：  
+
+> 代码实现  (自顶向下)
+
+```
+	public static void sort(Comparable[] a) {
+        Comparable[] aux = new Comparable[a.length];
+        sort(a, aux, 0, a.length-1);
+        assert isSorted(a);
+    }
+	private static void sort(Comparable[] a, int[] index, int[] aux, int lo, int hi) {
+        if (hi <= lo) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(a, index, aux, lo, mid);
+        sort(a, index, aux, mid + 1, hi);
+        merge(a, index, aux, lo, mid, hi);
+    }
+```
+
 ![image](https://raw.githubusercontent.com/suifeng412/CodeLib/master/algorithm/public/2018-10-05_162422.jpg)  
 扩展：  
 在使用归并排序的时候，可以采用选择、插入等排序方法将数组分割进行排序，最后才归整理。
 
+> 代码实现（自底向上）
 
+先归并微型数组，在叠加继续归并。例如：先两两归并、再四四归并、再八八归并、一直循环下去
 
+```
+ 	public static void sort(Comparable[] a) {
+        int n = a.length;
+        Comparable[] aux = new Comparable[n];
+        for (int len = 1; len < n; len *= 2) {
+            for (int lo = 0; lo < n-len; lo += len+len) {
+                int mid  = lo+len-1;
+                int hi = Math.min(lo+len+len-1, n-1);
+                merge(a, aux, lo, mid, hi);
+            }
+        }
+    }
+```
 
 
 
